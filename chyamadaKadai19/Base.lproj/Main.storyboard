@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pci-MV-DEn">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="qcj-yn-pt4">
+            <objects>
+                <navigationController id="pci-MV-DEn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yJT-8L-5wS">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Uxy-ot-d3W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nPP-FU-UD6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="80"/>
+        </scene>
+        <!--Item List View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="FruitsListViewController" id="BYZ-38-t0r" customClass="ItemListViewController" customModule="chyamadaKadai17" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-wR-R7G">
+                                <rect key="frame" x="0.0" y="88" width="428" height="804"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5oN-wR-R7G" secondAttribute="bottom" id="2Tb-Uc-fJg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5oN-wR-R7G" secondAttribute="trailing" id="PbT-gq-Eoi"/>
+                            <constraint firstItem="5oN-wR-R7G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hg2-Xq-IFx"/>
+                            <constraint firstItem="5oN-wR-R7G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mpV-v5-vVA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hoO-tA-vqj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iwF-af-suJ" userLabel="Add Bar Button Item">
+                            <connections>
+                                <segue destination="mRl-fa-qZB" kind="show" identifier="AddItemSegue" id="Dnk-Ku-0og"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="5oN-wR-R7G" id="79f-VK-1Vc"/>
+                        <segue destination="mRl-fa-qZB" kind="show" identifier="EditItemSegue" id="qF0-cQ-Dcr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wsU-I6-DeE">
+            <objects>
+                <navigationController id="mRl-fa-qZB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kOo-xh-QKL"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NfL-N2-LZH">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QW9-Gh-ura" kind="relationship" relationship="rootViewController" id="xly-k2-Jjk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzH-d4-vxn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="80"/>
+        </scene>
+        <!--Input Item View Controller-->
+        <scene sceneID="Per-ef-xyQ">
+            <objects>
+                <viewController id="QW9-Gh-ura" customClass="InputItemViewController" customModule="chyamadaKadai17" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZX2-JD-yXq">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BcX-Qq-vUC" userLabel="Item Name Input Stack View">
+                                <rect key="frame" x="89" y="148" width="250" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhJ-H6-VPI" userLabel="Item Name Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRs-ri-uDZ">
+                                        <rect key="frame" x="59.666666666666643" y="0.0" width="190.33333333333337" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="250" id="7jI-Ge-0oe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wCO-7f-FnQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BcX-Qq-vUC" firstAttribute="top" secondItem="wCO-7f-FnQ" secondAttribute="top" constant="60" id="H3M-s9-PbX"/>
+                            <constraint firstItem="BcX-Qq-vUC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wCO-7f-FnQ" secondAttribute="leading" constant="60" id="KNN-yj-rWY"/>
+                            <constraint firstItem="wCO-7f-FnQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BcX-Qq-vUC" secondAttribute="trailing" constant="60" id="bZh-WX-sLn"/>
+                            <constraint firstItem="BcX-Qq-vUC" firstAttribute="centerX" secondItem="ZX2-JD-yXq" secondAttribute="centerX" id="hJj-x4-y3W"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dwo-s1-H9t">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gPs-qo-JsG" userLabel="Cancel Bar Button Item">
+                            <connections>
+                                <segue destination="OZf-lt-FKf" kind="unwind" unwindAction="didTapCancelButtonWithSegue:" id="9p2-pJ-e4F"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aHf-fw-nwZ">
+                            <connections>
+                                <action selector="saveItem:" destination="QW9-Gh-ura" id="ymA-pe-7ny"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="itemNameTextField" destination="nRs-ri-uDZ" id="mGL-WW-T5B"/>
+                        <outlet property="saveBarButtonItem" destination="aHf-fw-nwZ" id="tdq-lG-0bK"/>
+                        <segue destination="OZf-lt-FKf" kind="unwind" identifier="EditItemSegue" unwindAction="editItemWithSegue:" id="xJ4-zK-fvs"/>
+                        <segue destination="OZf-lt-FKf" kind="unwind" identifier="AddItemSegue" unwindAction="addItemWithSegue:" id="kv6-x5-m4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gK-8f-i4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="OZf-lt-FKf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="80"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dnk-Ku-0og"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
