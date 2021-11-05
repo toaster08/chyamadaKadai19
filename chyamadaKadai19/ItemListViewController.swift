@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Fruit: Codable {
+struct Fruit {
     private(set) var name: String
     var isChecked: Bool
 
@@ -22,6 +22,8 @@ struct Fruit: Codable {
 }
 
 final class ItemListViewController: UIViewController {
+    private let itemUserDefaults = ItemUserDefaults()
+
     private var fruitsList: [Fruit] = [Fruit(name: "りんご", isChecked: false),
                                        Fruit(name: "みかん", isChecked: true),
                                        Fruit(name: "バナナ", isChecked: false),
@@ -42,7 +44,14 @@ final class ItemListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let item = ItemUserDefaults().load()
+        let defaultItems: [Fruit] = [
+            Fruit(name: "りんご", isChecked: false),
+            Fruit(name: "みかん", isChecked: true),
+            Fruit(name: "バナナ", isChecked: false),
+            Fruit(name: "パイナップル", isChecked: true)
+        ].compactMap { $0 }
+
+        let item = itemUserDefaults.load() ?? defaultItems
         fruitsList = item
         tableView.reloadData()
     }
@@ -90,14 +99,14 @@ extension ItemListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         fruitsList[indexPath.row].isChecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        ItemUserDefaults().save(item: fruitsList)
+        save()
     }
 
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         fruitsList.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        ItemUserDefaults().save(item: fruitsList)
+        save()
     }
 }
 
@@ -112,7 +121,7 @@ extension ItemListViewController {
 
         fruitsList.append(fruit)
         tableView.reloadData()
-        ItemUserDefaults().save(item: fruitsList)
+        save()
     }
 
     @IBAction private func editItem(segue: UIStoryboardSegue) {
@@ -124,6 +133,10 @@ extension ItemListViewController {
 
         fruitsList[editingAtIndexPath.row] = fruit
         tableView.reloadRows(at: [editingAtIndexPath], with: .automatic)
-        ItemUserDefaults().save(item: fruitsList)
+        save()
+    }
+
+    private func save() {
+        _ = itemUserDefaults.save(item: fruitsList)
     }
 }
